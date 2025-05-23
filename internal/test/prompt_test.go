@@ -35,6 +35,9 @@ func TestPrompt(t *testing.T) {
 
 func (s *PromptTestSuite) SetupSuite() {
 	db, err := gorm.Open(mysql.Open("root:root@tcp(127.0.0.1:13316)/ai_gateway?charset=utf8mb4&parseTime=True&loc=Local&timeout=30s"))
+	if err != nil {
+		panic(err)
+	}
 	require.NoError(s.T(), err)
 	err = dao.InitTable(db)
 	require.NoError(s.T(), err)
