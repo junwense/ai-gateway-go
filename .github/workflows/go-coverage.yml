@@ -45,6 +45,10 @@ jobs:
         run: |
           docker compose -f ./.script/docker-compose.yaml up -d
 
+      - name: Test for MySQL
+        run: |
+          docker exec -it mysql8_test mysql -uroot -proot -e "SHOW DATABASES;"
+
       - name: Build
         run: go build -v ./...
 
