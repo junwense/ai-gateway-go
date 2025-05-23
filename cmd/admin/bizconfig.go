@@ -19,7 +19,10 @@ func main() {
 	server := gin.Default()
 	bizconfig := initBizConfig(db)
 	bizconfig.RegisterRoutes(server)
-	server.Run(":8080")
+	err := server.Run(":8080")
+	if err != nil {
+		panic(err)
+	}
 }
 
 // initDB 初始化数据库并自动建表
