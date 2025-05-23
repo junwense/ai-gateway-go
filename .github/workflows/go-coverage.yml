@@ -47,7 +47,7 @@ jobs:
 
       - name: Test for MySQL
         run: |
-          docker exec -it mysql8_test mysql -uroot -proot -e "SHOW DATABASES;"
+          docker exec -it mysql8 mysql -uroot -proot -e "SHOW DATABASES;"
 
       - name: Build
         run: go build -v ./...
