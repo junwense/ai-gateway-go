@@ -11,8 +11,3 @@ services:
     ports:
       #      注意这里我映射为了 13316 端口
       - "13316:3306"
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-uroot", "-proot" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5

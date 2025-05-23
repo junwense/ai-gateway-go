@@ -47,7 +47,6 @@ jobs:
 
       - name: Test for MySQL
         run: |
-          docker exec --tty=false -i script-mysql8-1 sh service mysql status
           docker exec --tty=false -i script-mysql8-1 mysql -uroot -proot -e "SHOW DATABASES;"
 
       - name: Build
