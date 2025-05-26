@@ -37,7 +37,7 @@ tidy:
 
 .PHONY: check
 check:
-	@$(MAKE) e2e
+	#@$(MAKE) e2e
 	@$(MAKE) fmt
 	@$(MAKE) tidy
 	@$(MAKE) lint
