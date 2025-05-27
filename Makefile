@@ -15,12 +15,10 @@ endif
 
 .PHONY: e2e
 e2e:
-	#@docker compose -f ./.script/docker-compose.yaml up -d
 	@docker compose -f ./docker-compose.yaml up -d
 	@echo "等待 10 秒确保容器启动完成..."
 	@$(SLEEP_CMD)  # 根据系统动态选择命令
 	@go	test -race -v -failfast ./...
-	#@docker compose -f ./.script/docker-compose.yaml down
 	@docker compose -f ./docker-compose.yaml down
 
 .PHONY:	fmt
@@ -37,7 +35,6 @@ tidy:
 
 .PHONY: check
 check:
-	#@$(MAKE) e2e
 	@$(MAKE) fmt
 	@$(MAKE) tidy
 	@$(MAKE) lint
